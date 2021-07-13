@@ -53,14 +53,14 @@ def holistic_recursive(origin_image, image, padding = 20, recursion_depth = 20):
         # cv2.imwrite('crop.jpg', image)
         holistic_recursive(origin_image, image, recursion_depth - 1)
 
-# cap = cv2.VideoCapture(0)
-cap = cv2.VideoCapture('smeny-etsn-brigadoy-tkrs_Pxv28bmL_N5en.mp4')
+cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture('smeny-etsn-brigadoy-tkrs_Pxv28bmL_N5en.mp4')
 
 # Write video
-w = int(cap.get(3))
-h = int(cap.get(4))
-fourcc = cv2.VideoWriter_fourcc(*'MP4V')
-out = cv2.VideoWriter('output_recursive.mp4', fourcc, 10.0, (w, h))
+# w = int(cap.get(3))
+# h = int(cap.get(4))
+# fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+# out = cv2.VideoWriter('output_recursive.mp4', fourcc, 10.0, (w, h))
 
 start_time = time.time()
 frame_count = 0
@@ -78,11 +78,11 @@ while True:
         frame_count = 0
     cv2.putText(img, f'FPS: {int(fps)}', (10, 30), cv2.FONT_HERSHEY_PLAIN, 2, (255, 0, 0), 2)
     cv2.imshow("cam", img)
-    out.write(img)
+    # out.write(img)
     k = cv2.waitKey(1)
     if k == 27:  # close on ESC key
         break
 
-cap.release()
-out.release()
+# cap.release()
+# out.release()
 cv2.destroyAllWindows()
